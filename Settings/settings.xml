@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!--information of the default settings of the aplication-->
+
+<data>
+    <DB_host>localhost</DB_host>
+    <DB_user>root</DB_user>
+    <DB_password>123456789</DB_password>
+    <DB>api_base</DB>
+    <Start_page>http://localhost:5000/api</Start_page>
+    <Login_page>http://localhost:5000/api</Login_page>
+    <Register_page>http://localhost:5000/api</Register_page>
+    <Ip_server>127.0.0.1</Ip_server>
+</data>
