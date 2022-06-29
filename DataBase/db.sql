@@ -26,3 +26,9 @@ CREATE TABLE STORAGE (
 	TEXT_ST varchar(400),
 	TYPE_ST BOOLEAN NOT NULL,
     primary key (ID_ST));
+
+CREATE TABLE PDF_STORAGE(
+	ID_PDF_ST int NOT NULL auto_increment,
+	NAME_PDF varchar(30) NOT NULL,
+	TYPE_PDF_ST BOOLEAN NOT NULL,
+	primary key (ID_PDF_ST));
