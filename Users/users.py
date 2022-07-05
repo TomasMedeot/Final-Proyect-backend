@@ -13,6 +13,7 @@ def usrlogin():
 #Verificate
 def verif(url,database):
     try:
+        print(url)
         #get information of user
         context =callback(url)
 
@@ -38,7 +39,6 @@ def verif(url,database):
             if db_r != ():
                 return {'element':db_r}
             else:
-                print('bbb')
                 context['function']='W_U'
                 database.datainsert(querys(context)[1])
                 context['function']='R_U'

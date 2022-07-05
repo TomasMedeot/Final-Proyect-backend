@@ -34,17 +34,20 @@ def delete_message(request,database):
     except:
         return {'msj':'error'}
 
-def set_pdf(request,database):
-    request['function']='R_PDF_S'
-    db_r = database.datasearch(querys(request)[0])
+def set_pdf(request,file,database):
+    context = {}
+    context=request
+    print(context)
+    '''context['function']='R_PDF_S'
+    db_r = database.datasearch(querys(context)[0])
     if db_r != ():
-        request['function']='W_PDF_S'
+        context['function']='W_PDF_S'
         database.datainsert(querys(request))
         folderdirectory = './MessagePdf/pdf_storage'
-        rq = request.files
+        rq = file
         file = rq['file']
-        file.save(os.path.join(folderdirectory,request['name']+'.pdf'))
-        return {'msj':'saved pdf'}
+        file.save(os.path.join(folderdirectory,request['name']+'.pdf'))'''
+    return {'msj':'saved pdf'}
 
 def read_arr_pdf(request,database):
     request['function']='R_PDF_S'
@@ -53,6 +56,9 @@ def read_arr_pdf(request,database):
 
 def read_one_pdf(request,database):
     folderdirectory = './MessagePdf/pdf_storage'
-    db_r = ''
-    f = os.path.join(folderdirectory,db_r)
-    return {'file':f}
+    request['function']='R_PDF_S'
+    db_r = database.datasearch(querys(request)[2])
+    db_r = db_r[0]
+    name = db_r[1]
+    f = os.path.join(folderdirectory,name)
+    return {'file':f,'name':name}
